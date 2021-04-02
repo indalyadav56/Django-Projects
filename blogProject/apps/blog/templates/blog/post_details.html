@@ -1,0 +1,43 @@
+{% extends 'blog/base.html' %}
+<!--  -->
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      {% if object.author == user %}
+      <a href="{% url 'update_post' object.id %}" class="btn btn-primary"
+        >Update</a
+      >
+      <a href="{% url 'delete_post' object.id %}" class="btn btn-danger"
+        >Delete</a
+      >
+
+      {% endif %}
+      <div class="card my-2">
+        <a href="{% url 'post_details' post.id %}">
+          <p><b>{{object.author}}</b></p>
+          <p><b>{{object.date}}</b></p>
+        </a>
+
+        <div class="media">
+          <img
+            src="{{object.author.profile.image.url}}"
+            class="mr-3 w-25 rounded-circle"
+            style="width: 50px !important"
+          />
+          <div class="media-body">
+            <a href="#">
+              <h5>{{object.title}}</h5>
+            </a>
+            <p>{{object.content}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">{% include './sidebar.html' %}</div>
+  </div>
+</div>
+
+{% endblock content %}

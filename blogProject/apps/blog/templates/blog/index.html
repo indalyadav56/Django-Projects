@@ -1,0 +1,38 @@
+{% extends 'blog/base.html' %}
+<!--  -->
+
+{% block title %}Home {% endblock title %}
+
+<!--  -->
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      {% for post in posts %}
+      <div class="card my-2">
+        <a href="{% url 'post_details' post.id %}">
+          <p><b>{{post.author}}</b></p>
+          <p><b>{{post.date}}</b></p>
+        </a>
+        <div class="media">
+          <img
+            src="{{post.author.profile.image.url}}"
+            class="mr-3 w-25 rounded-circle"
+            style="width: 50px !important"
+          />
+          <div class="media-body">
+            <a href="#">
+              <h5>{{post.title}}</h5>
+            </a>
+            <p>{{post.content}}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="col-md-4">{% include './sidebar.html' %}</div>
+  </div>
+</div>
+
+{% endblock content %}
