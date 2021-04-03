@@ -19,7 +19,7 @@ class PostDetails(DetailView):
 class CreatePost(LoginRequiredMixin,CreateView):
     template_name="blog/newpost.html"
     model=Post
-    fields=['title','content']
+    fields=['title','content','image']
     success_url="/"
 
     def form_valid(self,form):

@@ -14,30 +14,17 @@
       >
 
       {% endif %}
-      <div class="card my-2">
-        <a href="{% url 'post_details' post.id %}">
-          <p><b>{{object.author}}</b></p>
-          <p><b>{{object.date}}</b></p>
-        </a>
-
-        <div class="media">
-          <img
-            src="{{object.author.profile.image.url}}"
-            class="mr-3 w-25 rounded-circle"
-            style="width: 50px !important"
-          />
-          <div class="media-body">
-            <a href="#">
-              <h5>{{object.title}}</h5>
-            </a>
-            <p>{{object.content}}</p>
-          </div>
+      <div class="card my-3" style="width: 35rem">
+        <img src="{{post.image.url}}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">{{post.content}}</p>
         </div>
       </div>
+
+      <div class="col-md-4">{% include './sidebar.html' %}</div>
     </div>
-
-    <div class="col-md-4">{% include './sidebar.html' %}</div>
   </div>
-</div>
 
-{% endblock content %}
+  {% endblock content %}
+</div>
