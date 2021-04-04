@@ -1,0 +1,55 @@
+{% extends 'social/base.html' %}
+<!--==================-->
+{% block title %} Home {% endblock title %}
+<!--==================-->
+
+{% block content %}
+
+<div class="container my-5">
+
+  <div class="row">
+
+    <div class="col-5 text-center ">
+      <form action="">
+
+        <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search" name="search_user" value="{{request.GET.search_user}}"> 
+    <button class="btn btn-outline-success my-3 " type="submit">Search</button>
+
+      </form>
+    </div>
+  </div>
+  <div class="row">
+  
+    {% for user in user_list %}
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <img
+            src="/media/{{user.profile.user_pic}}"
+            width="250"
+            height="150"
+          />
+          <h4>{{user.email}}</h4>
+
+
+        {% if user.followed %}
+        <div class="card-footer">
+          <a href="{% url "unfollow_user" user.profile.id %}" class="btn btn-danger">Followed</a>
+
+        {% else %}
+
+        <div class="card-footer">
+          <a href="{% url "follow_user" user.profile.id %}" class="btn btn-primary">Follow</a>
+
+        {% endif %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+
+{% endblock content %}

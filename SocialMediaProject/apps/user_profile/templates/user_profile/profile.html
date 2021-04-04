@@ -1,0 +1,54 @@
+{% extends 'social/base.html' %}
+{% load static %}
+<!--==================-->
+{% load crispy_forms_tags %}
+<!--==================-->
+{% block title %} Login {% endblock title %}
+<!--==================-->
+{% block css %}
+  <link rel="stylesheet" href="{% static 'profile/css/style.css' %}">
+
+{% endblock css %}
+
+{% block content %}
+
+<div class="profile_header">
+
+</div>
+
+<div class="container my-5">
+  <div class="row">
+    <div class="col-5 mx-auto">
+      <div class="card border-2 border-top border-primary rounded-4 shadow-lg">
+        <div class="card-header text-center">
+          <h3>Profile Update</h3>
+        </div>
+        <div class="card-body">
+          <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %} {{form|crispy }}
+
+            <br />
+            <div class="d-grid my-2">
+              <button type="submit" class="btn btn-outline-danger">
+                Login
+              </button>
+              <br />
+              <br />
+              <button type="submit" class="btn btn-primary">
+                Back to home
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <button id="indal">Click To check JS</button>
+{% endblock content %}
+
+
+{% block js %}
+<script src="{% static 'profile/js/main.js' %}"></script>
+{% endblock js %}
