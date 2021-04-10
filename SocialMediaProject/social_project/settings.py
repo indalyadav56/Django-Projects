@@ -41,10 +41,8 @@ INSTALLED_APPS = [
     'crispy_forms',
 
 
-    # local apps
-    "apps.user",
-    "apps.user_profile",
-    "apps.social",
+   
+    "social",
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -64,7 +62,7 @@ ROOT_URLCONF = 'social_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates"],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,7 +126,6 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL="/"
 LOGIN_URL="login"
 
-AUTH_USER_MODEL="user.user"
 
 STATIC_URL = '/static/'
 

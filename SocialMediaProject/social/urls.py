@@ -17,7 +17,5 @@ urlpatterns = [
 
     path('comment/post/<int:pk>',views.post_comment,name="post_comment"),
 
-
-
    
 ]
