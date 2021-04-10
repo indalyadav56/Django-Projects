@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+<!--  -->
+
+{% block style %}
+
+<style>
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
+{% endblock style %}
+
+<!--  -->
+
+{% block content %}
+
+<div class="container">
+  <div>
+    <h1 class="text-center">Todo</h1>
+    <form method="POST">
+      {% csrf_token %} {{ form }}
+      <button type="submit" class="btn btn-primary">Add Todo</button>
+    </form>
+
+    <ul>
+      {% for todos in todo %}
+      <li>{{ todos.title }} <a href="">Edit</a> <a href="">Delete</a></li>
+
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% endblock content %}
