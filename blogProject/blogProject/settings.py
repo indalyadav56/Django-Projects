@@ -25,7 +25,7 @@ SECRET_KEY = 'q!3gxp@2@&*ed2_6=uwn+sz$#6pus2x*jnj@5xcxtt-dl0vuu*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -50,6 +50,7 @@ CRISPY_TEMPLATE_PACK="bootstrap4"
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -139,3 +140,6 @@ STATICFILES_DIRS = [
 LOGIN_REDIRECT_URL="home"
 LOGIN_URL="login"
 LOGOUT_REDIRECT_URL="login"
+
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
