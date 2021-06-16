@@ -2,8 +2,8 @@ from django.shortcuts import render,redirect
 from django.views.generic import View
 from .models import Todo
 from .forms import TodoCreateForm
-# Create your views here.
 
+# Create your views here.
 class HomeView(View):
     
     def get(self,request):
@@ -26,7 +26,19 @@ class HomeView(View):
         }
         return render(request,'core/home.html',context)
     
-    def delete(self,request,pk):
-        todo=Todo.objects.get(id=pk)
-        todo.delete()
-        return render(request,"core/delete.html")
+    
+
+def deleteTodo(request,id):
+    obj=Todo.objects.get(id=id)
+    obj.delete()
+    return redirect('/')
+
+def EditTodo(request,id):
+    obj=Todo.objects.get(id=id)
+    todo_form=TodoCreateForm(request.POST,instance=obj)
+    if todo_form.is_valid():
+        obj.save()
+    context={
+            'form':todo_form
+        }
+    return render(request,'core/edit.html',context)

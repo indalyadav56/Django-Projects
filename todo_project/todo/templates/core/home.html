@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+<!--  -->
+{% load crispy_forms_tags %}
+<!--  -->
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-5 mt-4" style="margin-left: auto; margin-right: auto">
+      <div>
+        <h1 class="text-center">Todo</h1>
+        <form method="POST">
+          {% csrf_token %} {{ form|crispy }}
+          <button type="submit" class="btn btn-primary mt-2 mb-2">
+            Add Todo
+          </button>
+        </form>
+
+        <div class="list-group">
+          {% for todos in todo %}
+          <button
+            type="button"
+            class="list-group-item list-group-item-action mt-2"
+            aria-current="true"
+            style="height: 50px"
+          >
+            {{ todos.title }}
+            <div style="float: right">
+              <a href="{% url 'edit' todos.id %}" class="">Edit</a>
+              <a href="{% url 'delete' todos.id %}">Delete</a>
+            </div>
+          </button>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
