@@ -1,0 +1,119 @@
+{% load static %}
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel mt-3 d-flex">
+      <div class="image">
+        <img
+          src="{% static 'dist/img/user2-160x160.jpg' %}"
+          class="img-circle elevation-2"
+          alt="User Image"
+        />
+      </div>
+      <div class="info">
+        <a href="#" class="d-block">{{user.username}}</a>
+      </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul
+        class="nav nav-pills nav-sidebar flex-column"
+        data-widget="treeview"
+        role="menu"
+        data-accordion="false"
+      >
+        <li class="nav-item has-treeview menu-open">
+          <a href="/" class="nav-link">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>Dashboard</p>
+          </a>
+        </li>
+
+        <li class="nav-item has-treeview menu-open">
+          <a href="{% url 'add_staff' %}" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>Add Staff</p>
+          </a>
+        </li>
+        <li class="nav-item has-treeview menu-open">
+          <a href="{% url 'manage_staff' %}" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>Manage Staff</p>
+          </a>
+        </li>
+        <li class="nav-item has-treeview menu-open">
+          <a href="{% url 'add_student' %}" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>Add Student</p>
+          </a>
+        </li>
+        <li class="nav-item has-treeview menu-open">
+          <a href="{% url 'manage_student' %}" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>Manage Student</p>
+          </a>
+        </li>
+        <li class="nav-item has-treeview menu-open">
+          <a href="{% url 'add_staff' %}" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>Add Course</p>
+          </a>
+        </li>
+        <li class="nav-item has-treeview menu-open">
+          <a href="{% url 'add_staff' %}" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>Manage Course</p>
+          </a>
+        </li>
+        <li class="nav-item has-treeview menu-open">
+          <a href="{% url 'add_staff' %}" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>Add Subject</p>
+          </a>
+        </li>
+        <li class="nav-item has-treeview menu-open">
+          <a href="{% url 'add_staff' %}" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>Manage Subject</p>
+          </a>
+        </li>
+        <li class="nav-item has-treeview menu-open">
+          <a href="{% url 'add_staff' %}" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>Student Leave</p>
+          </a>
+        </li>
+        <li class="nav-item has-treeview menu-open">
+          <a href="{% url 'add_staff' %}" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>Staff Leave</p>
+          </a>
+        </li>
+        <li class="nav-item has-treeview menu-open">
+          <a href="{% url 'add_staff' %}" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>View Attendence</p>
+          </a>
+        </li>
+
+        <li class="nav-item has-treeview menu-open">
+          <a href="{% url 'add_staff' %}" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>Send Staff Notification</p>
+          </a>
+        </li>
+        <li class="nav-item has-treeview menu-open">
+          <a href="{% url 'add_staff' %}" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>Send Student Notification</p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>
