@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+<!--  -->
+{% block content %}
+
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-4" style="margin-left: auto; margin-right: auto">
+      <form method="POST">
+        {% csrf_token %}
+        <p>Are you sure you want to delete?</p>
+        <button class="btn btn-danger">Delelte</button>
+        <a href="{% url 'post_details' object.id %}" class="btn btn-primary"
+          >Cencel</a
+        >
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+<!--  -->
+
+{% block content %}
+<div class="container">
+  <div class="row mt-2">
+    <div class="col-md-8">
+      <div class="card shadow border-0">
+        <img src="{{post.image.url}}" class="card-img-top" height="400px" />
+        <div class="card-body">
+          <p class="card-text">{{post.content}}</p>
+        </div>
+      </div>
+    </div>
+
+    <!--  -->
+
+    <div class="col-4">
+      {% if object.author == user %}
+      <a href="{% url 'update_post' object.id %}" class="btn btn-primary"
+        >Update</a
+      >
+      <a href="{% url 'delete_post' object.id %}" class="btn btn-danger"
+        >Delete</a
+      >
+
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock content %}
