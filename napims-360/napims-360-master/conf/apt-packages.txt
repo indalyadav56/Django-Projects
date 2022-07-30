@@ -1,0 +1,11 @@
+gcc
+gnupg
+procps
+python3-dev
+python-hiredis
+wget
+apt-utils
+libpq5
+libedit2
+vim
+cron

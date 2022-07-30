@@ -1,0 +1,34 @@
+{
+  "name": "napims-360",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:RightClickITSolutions/napims-360.git",
+  "author": "Right Click Solutions <info@rightclicksolutions.com.ng>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "lint:client": "yarn workspace @namis-360/client lint",
+    "lint:client:fix": "yarn workspace @namis-360/client lint:fix",
+    "lint:server": "flake8 napims360/",
+    "migrate": ".venv/bin/python manage.py migrate",
+    "start:client": "yarn workspace @namis-360/client start",
+    "start:server": ".venv/bin/python manage.py migrate && .venv/bin/python manage.py runserver",
+    "start": "concurrently -k \"yarn start:server\"  \"yarn start:client\"",
+    "clean:old-client-build": "rm -rf napims360/apps/frontend/templates/client",
+    "update:server-static-build": "mv services/client/build napims360/apps/frontend/templates/client",
+    "prebuild:client": "rm -rf services/client/build",
+    "build:client": "yarn workspace @namis-360/client build",
+    "postbuild:client": "yarn clean:old-client-build && yarn update:server-static-build",
+    "build": "SKIP_PREFLIGHT_CHECK=true yarn build:client"
+  },
+  "workspaces": [
+    "services/*"
+  ],
+  "devDependencies": {
+    "concurrently": "^5.0.2"
+  },
+  "keywords": [
+    "nnpc",
+    "napims"
+  ]
+}
