@@ -1,4 +1,0 @@
--r requirements-common.txt
-ipython==7.22.0
-coverage==5.5
-flake8

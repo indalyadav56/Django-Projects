@@ -1,4 +1,0 @@
--r requirements-common.txt
-gunicorn
-uvicorn
-supervisor
